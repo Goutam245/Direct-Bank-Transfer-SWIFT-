@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prominence Bank Design System
+   Premium Private Banking Aesthetic - Dark Marble + Cyan Blue
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Cyan/Turquoise */
+    --cyan-primary: 189 100% 50%;
+    --cyan-bright: 180 100% 50%;
+    --cyan-light: 187 100% 42%;
+    --cyan-dark: 193 100% 40%;
+    --cyan-glow: 180 100% 56%;
+    
+    /* Deep Navy Backgrounds */
+    --navy-darkest: 216 56% 10%;
+    --navy-dark: 216 42% 15%;
+    --navy-medium: 215 35% 18%;
+    --navy-light: 213 30% 22%;
+    
+    /* Text Colors */
+    --text-white: 0 0% 100%;
+    --text-light: 0 0% 96%;
+    --text-gray: 220 9% 46%;
+    --text-muted: 217 19% 27%;
+    
+    /* Semantic Tokens */
+    --background: var(--navy-darkest);
+    --foreground: var(--text-white);
+
+    --card: var(--navy-dark);
+    --card-foreground: var(--text-light);
+
+    --popover: var(--navy-dark);
+    --popover-foreground: var(--text-light);
+
+    --primary: var(--cyan-primary);
+    --primary-foreground: var(--navy-darkest);
+
+    --secondary: var(--navy-medium);
+    --secondary-foreground: var(--text-light);
+
+    --muted: var(--navy-light);
+    --muted-foreground: var(--text-gray);
+
+    --accent: var(--cyan-bright);
+    --accent-foreground: var(--navy-darkest);
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 216 30% 20%;
+    --input: 216 30% 20%;
+    --ring: var(--cyan-primary);
+
+    --radius: 0.5rem;
+
+    /* Light section variants */
+    --section-light: 210 20% 98%;
+    --section-light-blue: 200 50% 97%;
+    --section-light-foreground: 216 42% 15%;
+    
+    /* Gradients */
+    --gradient-cyan: linear-gradient(135deg, hsl(189 100% 50%), hsl(180 100% 50%));
+    --gradient-navy: linear-gradient(180deg, hsl(216 56% 10%), hsl(216 42% 15%));
+    --gradient-glow: radial-gradient(ellipse at center, hsla(180 100% 50% / 0.15), transparent 70%);
+    
+    /* Shadows & Glows */
+    --glow-cyan: 0 0 30px hsla(180 100% 50% / 0.4);
+    --glow-cyan-intense: 0 0 50px hsla(180 100% 50% / 0.6);
+    --shadow-card: 0 10px 40px -10px hsla(0 0% 0% / 0.5);
+    --shadow-elevated: 0 25px 50px -12px hsla(0 0% 0% / 0.6);
+
+    --sidebar-background: var(--navy-dark);
+    --sidebar-foreground: var(--text-light);
+    --sidebar-primary: var(--cyan-primary);
+    --sidebar-primary-foreground: var(--navy-darkest);
+    --sidebar-accent: var(--navy-medium);
+    --sidebar-accent-foreground: var(--text-light);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--cyan-primary);
+  }
+
+  .dark {
+    --background: var(--navy-darkest);
+    --foreground: var(--text-white);
+    --card: var(--navy-dark);
+    --card-foreground: var(--text-light);
+    --popover: var(--navy-dark);
+    --popover-foreground: var(--text-light);
+    --primary: var(--cyan-primary);
+    --primary-foreground: var(--navy-darkest);
+    --secondary: var(--navy-medium);
+    --secondary-foreground: var(--text-light);
+    --muted: var(--navy-light);
+    --muted-foreground: var(--text-gray);
+    --accent: var(--cyan-bright);
+    --accent-foreground: var(--navy-darkest);
+    --border: 216 30% 20%;
+    --input: 216 30% 20%;
+    --ring: var(--cyan-primary);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Marble Background Effect */
+  .bg-marble-dark {
+    background: 
+      radial-gradient(ellipse at 20% 30%, hsla(180 100% 50% / 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, hsla(189 100% 50% / 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, hsla(216 56% 10% / 1) 0%, hsl(216 42% 12%) 100%);
+    position: relative;
+  }
+  
+  .bg-marble-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  
+  /* Cyan Glow Effects */
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+  
+  .glow-cyan-intense {
+    box-shadow: var(--glow-cyan-intense);
+  }
+  
+  .text-glow-cyan {
+    text-shadow: 0 0 20px hsla(180 100% 50% / 0.5);
+  }
+  
+  /* Button Variants */
+  .btn-primary-glow {
+    @apply relative overflow-hidden px-8 py-4 font-semibold rounded-lg transition-all duration-300;
+    background: linear-gradient(135deg, hsl(189 100% 50%), hsl(180 100% 45%));
+    color: hsl(216 56% 10%);
+    box-shadow: 0 0 20px hsla(180 100% 50% / 0.4);
+  }
+  
+  .btn-primary-glow:hover {
+    box-shadow: 0 0 40px hsla(180 100% 50% / 0.6);
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline-cyan {
+    @apply relative px-8 py-4 font-semibold rounded-lg transition-all duration-300 bg-transparent;
+    border: 2px solid hsl(189 100% 50%);
+    color: hsl(189 100% 50%);
+  }
+  
+  .btn-outline-cyan:hover {
+    background: hsla(189 100% 50% / 0.1);
+    box-shadow: 0 0 20px hsla(180 100% 50% / 0.3);
+  }
+  
+  /* Section backgrounds */
+  .section-light {
+    background: hsl(var(--section-light));
+    color: hsl(var(--section-light-foreground));
+  }
+  
+  .section-light-blue {
+    background: hsl(var(--section-light-blue));
+    color: hsl(var(--section-light-foreground));
+  }
+  
+  /* Card styles */
+  .card-dark {
+    @apply rounded-xl p-6 transition-all duration-300;
+    background: hsla(216 42% 15% / 0.8);
+    border: 1px solid hsla(180 100% 50% / 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .card-dark:hover {
+    border-color: hsla(180 100% 50% / 0.3);
+    box-shadow: 0 0 30px hsla(180 100% 50% / 0.1);
+  }
+  
+  /* Step connector line */
+  .step-connector {
+    @apply absolute top-12 left-1/2 w-px h-full -translate-x-1/2;
+    background: linear-gradient(to bottom, hsl(189 100% 50%), transparent);
+  }
+  
+  /* Accordion custom styles */
+  .faq-accordion [data-state="open"] {
+    border-color: hsla(180 100% 50% / 0.3);
+  }
+  
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(216 56% 10%);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(189 100% 50% / 0.3);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(189 100% 50% / 0.5);
+  }
+}
+
+@layer utilities {
+  .text-cyan-primary {
+    color: hsl(189 100% 50%);
+  }
+  
+  .text-cyan-bright {
+    color: hsl(180 100% 50%);
+  }
+  
+  .bg-cyan-primary {
+    background-color: hsl(189 100% 50%);
+  }
+  
+  .border-cyan-primary {
+    border-color: hsl(189 100% 50%);
+  }
+  
+  .text-navy-dark {
+    color: hsl(216 42% 15%);
+  }
+  
+  .bg-navy-dark {
+    background-color: hsl(216 42% 15%);
+  }
+  
+  .bg-navy-darkest {
+    background-color: hsl(216 56% 10%);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsla(180 100% 50% / 0.4);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsla(180 100% 50% / 0.6);
+    }
+  }
+  
+  .animate-glow-line {
+    animation: glow-line 2s ease-in-out infinite;
+  }
+  
+  @keyframes glow-line {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+}
